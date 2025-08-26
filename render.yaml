@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: save-restriction-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python env_validator.py && gunicorn bot:app
+    envVars:
+      - key: API_ID
+        value: '21240850'
+      - key: API_HASH
+        value: '593eec13b2638de5e9bb4284ea8631ec'
+      - key: BOT_TOKEN
+        value: '8296889818:AAG7lfuJU-ewxjDLH7O4wmW92B5K4CxSM4w'
+      - key: OWNER_ID
+        value: '6662470778'
+      - key: TARGET_CHAT_IDS
+        value: '-1003014498688,-1002944027661'

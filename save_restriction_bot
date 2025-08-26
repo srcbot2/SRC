@@ -1,0 +1,21 @@
+save_restriction_bot/
+├── bot.py                      # Telegram command handler
+├── config.py                   # Env vars + target chats
+├── .env                        # Secrets: API_ID, API_HASH, BOT_TOKEN
+├── requirements.txt
+├── render.yaml                 # Render deploy config
+├── telegram_userbot/
+│   ├── session_name.session    # Telethon session file
+│   ├── channel_scraper.py      # Scrapes all messages
+│   ├── media_extractor.py      # Downloads media
+│   ├── media_uploader.py       # Re-uploads to targets
+│   ├── forward_diagnostics.py  # Logs failures
+├── diagnostics/
+│   ├── env_check.py            # Validates .env
+│   ├── status_check.py         # /status command
+│   ├── retry_handler.py        # Retry logic
+│   └── cookie_validator.py     # Session/cookie expiry check
+├── logs/
+│   ├── forward.log
+│   └── error.log
+└── test_commands.md            # Bot usage guide
