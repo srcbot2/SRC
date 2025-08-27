@@ -14,8 +14,8 @@ async def forward_channel(update, context):
         link = context.args[0]
         messages = scrape_messages(link)
         paths = extract_media(messages)
-        upload_media(paths)
-        await update.message.reply_text("✅ Forward complete.")
+        upload_media(paths)  # ye sab target chats me bhej dega
+        await update.message.reply_text("✅ Forward complete to all target chats.")
     except Exception as e:
         await update.message.reply_text(f"❌ Error: {e}")
 
@@ -29,8 +29,9 @@ def run_bot():
 # Run Telegram bot in background thread
 threading.Thread(target=run_bot, daemon=True).start()
 
-# Health check route (Render will ping this)
+# Health check route
 @app.route("/")
 def index():
     return "🚀 Telegram Bot is running on Render!"
+
 
