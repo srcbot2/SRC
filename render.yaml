@@ -3,7 +3,7 @@ services:
     name: save-restriction-bot
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: python env_validator.py && gunicorn bot:app
+    startCommand: gunicorn bot:app
     envVars:
       - key: API_ID
         value: '21240850'
