@@ -1,11 +1,10 @@
-# bot.py
-
 from flask import Flask
 from telegram.ext import Application, CommandHandler
 from config import BOT_TOKEN
 from telegram_userbot.channel_scraper import scrape_messages
 from telegram_userbot.media_extractor import extract_media
 from telegram_userbot.media_uploader import upload_media
+from env_validator import validate_env  # 🔐 Env check added
 import threading
 import logging
 
@@ -13,6 +12,9 @@ import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 logger.info("🚀 Bot startup initiated")
+
+# ✅ Validate environment before anything else
+validate_env()
 
 # 🌐 Flask app for health check
 app = Flask(__name__)
